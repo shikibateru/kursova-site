@@ -1,0 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,500&display=swap');
+@import "bourbon";
+
+#content {
+  margin: 0 auto;
+  padding-bottom: 50px;
+  width: 80%;
+  max-width: 978px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  overflow: hidden;
+
+  // Modernizr no-js fallback
+  .no-js & {
+    display: none;
+  }
+}
+
+
+#loader {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  animation: spin 1.7s linear infinite;
+  z-index: 11;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #e74c3c;
+    animation: spin-reverse .6s linear infinite;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #f9c922;
+    animation: spin 1s linear infinite;
+  }
+}
+
+// Bourbon mixins
+@include keyframes(spin) {
+  0% {
+    @include transform(rotate(0deg));
+  }
+  100% {
+    @include transform(rotate(360deg));
+  }
+}
+
+@include keyframes(spin-reverse) {
+  0% {
+    @include transform(rotate(0deg));
+  }
+  100% {
+    @include transform(rotate(-360deg));
+  }
+}
+
+#loader-wrapper .loader-section {
+  position: fixed;
+  top: 0;
+  width: 51%;
+  height: 100%;
+  background: #222;
+  z-index: 10;
+}
+
+#loader-wrapper .loader-section.section-left {
+  left: 0;
+}
+
+#loader-wrapper .loader-section.section-right {
+  right: 0;
+}
+
+.loaded #loader-wrapper .loader-section.section-left {
+  transform: translateX(-100%);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader-wrapper .loader-section.section-right {
+  transform: translateX(100%);
+  transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+.loaded #loader {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.loaded #loader-wrapper {
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition: all 0.3s 1s ease-out;
+}
+
+
+body{
+  color:#000;
+  background-attachment: fixed;
+  background: #F0EFF6;
+  font-family: Montserrat;
+  margin:0px;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    margin:0px;
+    padding:0px;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.logo{
+  width:120px;
+  height: 80px;
+  position: absolute;
+  left:0px;
+  margin-top:25px;
+  padding-left:30px;
+}
+
+.Finance-dashboard{
+  font-size:55px;
+  font-weight: bold;
+  margin:0px;
+  margin-left: 40px;
+  opacity:70%;
+  margin-top: 40px;
+}
+
+.header{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.table{
+  padding-top:40px;
+  display: flex;
+  padding-left:20px;
+  padding-right:20px;
+}
+
+.table-item{
+  width: 350px;
+  background-color: #fff;
+  justify-content: center;
+  text-align: center;
+  height:auto;
+  padding: 30px 0 30px 0;
+  box-shadow: 5px 5px 34px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin-right: 40px;
+}
+
+.table-item:last-child{
+  margin-right: 0;
+}
+
+.line{
+  margin: 0;
+  width:100%;
+  height: 1px;
+  background-color:#000;
+  opacity:0.1;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.total-income{
+  font-size: 24px;
+  font-weight: bold;
+  opacity:70%;
+  margin: 0;
+}
+
+.money1{
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.percentage1{
+  color:#009BA0;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.previous-month{
+  opacity: 50%;
+  margin: 0;
+}
+
+.graphics{
+  margin-top:50px;
+  display: flex;
+  justify-content: center;
+}
+
+.but1{
+  margin-top:40px;
+  width:300px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #2890FF;
+  color:#fff;
+  border:none;
+  transition: 0.3s;
+}
+
+.but12{
+  margin-top:40px;
+  width:300px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #2890FF;
+  color:#fff;
+  border:none;
+  transition: 0.3s;
+  margin: auto;
+  margin-top:40px;
+  display: block;
+}
+
+.but13{
+  margin-top:40px;
+  width:300px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgb(220, 57, 18);
+  color:#fff;
+  border:none;
+  transition: 0.3s;
+  margin: auto;
+  margin-top:40px;
+  display: block;
+}
+
+.but13:hover{
+  background-color: #fff;
+  color:#000;
+  border: 2px solid silver;
+}
+
+
+.but1:hover{
+  background-color: #2669B0;
+}
+
+.Updated-data{
+  display: flex;
+  justify-content: center;
+}
+
+.second-screen{
+  margin-top:90px;
+  background-color: #333;
+  height:1200px;
+}
+
+.header2_2{
+  color:#fff;
+  padding-top:80px;
+  text-align: center;
+  font-size: 54px;
+  font-weight: bold;
+}
+
+.third-screen{
+  margin-top:60px;
+  height:500px;
+}
+
+.header2_3{
+  padding-top:60px;
+  text-align: center;
+  font-size: 54px;
+  font-weight: bold;
+  opacity:70%;
+}
+
+.text-p{
+  font-size: 24px;
+  text-align: center;
+}
+
+.text-links{
+  font-size: 24px;
+  padding-left:30px;
+  font-weight: bold;
+  opacity:70%;
+  text-align: center;
+}
+
+.link{
+  padding-left:60px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.photos{
+  text-align: center;
+}
+
+.for-photos{
+  position:relative;
+}
+
+.img_1{
+  width:75px;
+  padding-right: 25px;
+}
+
+.img_2{
+  width:75px;
+  padding-right: 25px;
+}
+
+.img_3{
+  width:75px;
+}
+
+.text-p1{
+  font-size: 24px;
+  text-align: center;
+  color:#fff;
+}

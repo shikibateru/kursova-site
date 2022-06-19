@@ -1,0 +1,3 @@
+Approach 3: Using a custom javascript function with Axios Library
+In this example, we will download images and file using Axios. This requires a little intermediate knowledge of the JavaScript to work and in this example a Axios library will be used.
+ 
